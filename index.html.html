@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Audit RE">
+<meta name="application-name" content="Audit RE">
+<title>Audit Sheet · RE São José do Rio Preto</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='38' fill='%230a0a0a'/><circle cx='90' cy='90' r='56' fill='%23c9a961'/><text x='90' y='90' font-family='-apple-system,system-ui,sans-serif' font-size='40' font-weight='900' fill='%23000' text-anchor='middle' dominant-baseline='central' letter-spacing='1'>RE</text><rect x='28' y='130' width='124' height='3' fill='%23c9a961'/></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230a0a0a'/><circle cx='32' cy='32' r='22' fill='%23c9a961'/><text x='32' y='32' font-family='sans-serif' font-size='16' font-weight='900' fill='%23000' text-anchor='middle' dominant-baseline='central'>RE</text></svg>">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Audit Sheet RE SJRP","short_name":"Audit RE","description":"Relatório fotográfico — Royal Enfield São José do Rio Preto","start_url":"./","display":"standalone","orientation":"portrait","background_color":"%230a0a0a","theme_color":"%230a0a0a","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 192 192%27><rect width=%27192%27 height=%27192%27 fill=%27%230a0a0a%27/><circle cx=%2796%27 cy=%2796%27 r=%2760%27 fill=%27%23c9a961%27/><text x=%2796%27 y=%2796%27 font-family=%27sans-serif%27 font-size=%2742%27 font-weight=%27900%27 fill=%27%23000%27 text-anchor=%27middle%27 dominant-baseline=%27central%27>RE</text></svg>","sizes":"192x192","type":"image/svg+xml","purpose":"any"},{"src":"data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 512 512%27><rect width=%27512%27 height=%27512%27 fill=%27%230a0a0a%27/><circle cx=%27256%27 cy=%27256%27 r=%27160%27 fill=%27%23c9a961%27/><text x=%27256%27 y=%27256%27 font-family=%27sans-serif%27 font-size=%27112%27 font-weight=%27900%27 fill=%27%23000%27 text-anchor=%27middle%27 dominant-baseline=%27central%27>RE</text></svg>","sizes":"512x512","type":"image/svg+xml","purpose":"any"}]}'>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #0d0d0d;
+    --surface: #181818;
+    --surface-2: #232323;
+    --surface-3: #2c2c2c;
+    --border: #2e2e2e;
+    --border-strong: #3d3d3d;
+    --text: #f0f0f0;
+    --text-muted: #9a9a9a;
+    --text-dim: #6e6e6e;
+    --gold: #c9a961;
+    --gold-bright: #e6c47a;
+    --gold-dark: #8b7339;
+    --success: #4ea860;
+    --warning: #ff9800;
+    --na: #6b7d8a;
+    --danger: #e05656;
+  }
+
+  html, body { background: var(--bg); color: var(--text); }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    padding-bottom: 90px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+    border-bottom: 1px solid var(--gold-dark);
+    padding: 12px 16px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(201,169,97,0.25);
+  }
+
+  .brand-info { flex: 1; min-width: 0; }
+  .brand-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .brand-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .progress { text-align: right; min-width: 70px; }
+  .progress-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .progress-text small { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+  .progress-bar {
+    height: 3px;
+    background: var(--surface-3);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright));
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabs {
+    display: flex;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 64px;
+    z-index: 49;
+  }
+  .tab {
+    flex: 1;
+    padding: 14px 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    font-family: inherit;
+  }
+  .tab.active { color: var(--gold); }
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    right: 30%;
+    height: 2px;
+    background: var(--gold);
+  }
+  .tab .tab-count {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 7px;
+    background: var(--surface-3);
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+  }
+  .tab.active .tab-count { background: rgba(201,169,97,0.18); color: var(--gold); }
+
+  /* ---------- Filter chips ---------- */
+  .filters {
+    display: flex;
+    gap: 6px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip {
+    padding: 6px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .chip.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ---------- Sections ---------- */
+  .section { border-bottom: 1px solid var(--border); }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: var(--surface);
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .section-chevron {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s;
+    color: var(--text-muted);
+  }
+  .section.collapsed .section-chevron { transform: rotate(-90deg); }
+  .section.collapsed .section-body { display: none; }
+  .section-body { padding: 10px 12px 14px; }
+
+  /* ---------- Item cards ---------- */
+  .item-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, opacity 0.2s;
+  }
+  .item-card.done { border-color: var(--success); }
+  .item-card.na { border-color: var(--na); opacity: 0.75; }
+  .item-card.hidden-by-filter { display: none; }
+
+  .item-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 12px 8px;
+  }
+  .item-code {
+    background: var(--gold);
+    color: #000;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    min-width: 44px;
+    text-align: center;
+  }
+  .item-card.done .item-code { background: var(--success); color: #fff; }
+  .item-card.na .item-code { background: var(--na); color: #fff; }
+
+  .item-info { flex: 1; min-width: 0; }
+  .item-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+  }
+  .item-spec {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .item-slide-ref {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .item-instruction {
+    font-size: 12px;
+    color: #d8c896;
+    margin: 4px 12px 10px;
+    padding: 8px 10px;
+    background: rgba(201,169,97,0.07);
+    border-left: 2px solid var(--gold);
+    border-radius: 4px;
+    line-height: 1.45;
+  }
+  .item-instruction::before {
+    content: '📷  ';
+    font-size: 11px;
+  }
+
+  .photo-area { margin: 0 12px 10px; }
+  .photo-empty {
+    border: 2px dashed var(--border-strong);
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    gap: 6px;
+    background: var(--surface-2);
+  }
+  .photo-empty svg { width: 32px; height: 32px; opacity: 0.4; }
+  .photo-preview-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+  .photo-preview {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    color: var(--gold);
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+  }
+
+  .photo-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .btn {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    font-family: inherit;
+    transition: filter 0.15s, transform 0.05s;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--gold);
+    color: #000;
+  }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-secondary {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-na {
+    background: transparent;
+    color: var(--na);
+    border: 1px solid var(--na);
+    flex: 0 0 80px;
+  }
+  .btn-na.active { background: var(--na); color: #fff; }
+  .btn-icon { flex: 0 0 44px; padding: 10px; }
+
+  .note-input {
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    margin: 0 0 8px;
+    resize: vertical;
+    min-height: 36px;
+    max-height: 120px;
+    font-family: inherit;
+    line-height: 1.4;
+  }
+  .note-input:focus { outline: none; border-color: var(--gold); }
+  .note-wrap { padding: 0 12px 10px; }
+  .note-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- Bottom bar ---------- */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+    border-top: 1px solid var(--gold-dark);
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+    display: flex;
+    gap: 8px;
+    z-index: 60;
+  }
+  .bottom-bar #download-btn { flex: 1; }
+  .bottom-bar #menu-btn {
+    flex: 0 0 48px;
+    background: var(--surface-2);
+    color: var(--gold);
+    border: 1px solid var(--border-strong);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* ---------- Modal ---------- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .modal.hidden { display: none; }
+  .modal-content {
+    background: var(--surface);
+    border: 1px solid var(--gold-dark);
+    border-radius: 12px;
+    padding: 22px 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .modal-content h3 {
+    color: var(--gold);
+    margin-bottom: 4px;
+    letter-spacing: 1.2px;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  .modal-content p.modal-sub {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+  .modal-content .menu-item {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 13px 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal-content .menu-item.danger { color: var(--danger); border-color: rgba(224,86,86,0.3); }
+  .modal-item-ico { font-size: 16px; }
+  .modal-actions { display: flex; gap: 8px; margin-top: 12px; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed;
+    bottom: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 11px 18px;
+    border-radius: 24px;
+    font-size: 13px;
+    z-index: 300;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: opacity 0.3s, transform 0.3s;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    pointer-events: none;
+  }
+  .toast.toast-success { border-color: var(--success); color: var(--success); }
+  .toast.toast-error { border-color: var(--danger); color: var(--danger); }
+
+  /* ---------- Area summary ---------- */
+  .area-summary {
+    padding: 12px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .area-summary strong { color: var(--gold); font-weight: 700; }
+
+  /* ---------- Loading state ---------- */
+  .loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .loading-overlay.hidden { display: none; }
+  .spinner {
+    width: 44px;
+    height: 44px;
+    border: 3px solid var(--surface-3);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  .loading-text {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    text-align: center;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand-mark">RE</div>
+  <div class="brand-info">
+    <div class="brand-title">Audit Sheet</div>
+    <div class="brand-sub">São José do Rio Preto · Dealer 5200100752</div>
+  </div>
+  <div class="progress">
+    <div class="progress-text"><span id="done-count">0</span><small>/<span id="total-count">0</span></small></div>
+    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-area="showroom">Showroom <span class="tab-count" id="count-showroom">0/0</span></button>
+  <button class="tab" data-area="oficina">Oficina <span class="tab-count" id="count-oficina">0/0</span></button>
+</nav>
+
+<div class="filters">
+  <button class="chip active" data-filter="all">Todos</button>
+  <button class="chip" data-filter="pending">⏳ Pendente</button>
+  <button class="chip" data-filter="done">✓ Feita</button>
+  <button class="chip" data-filter="na">N/A</button>
+</div>
+
+<main id="content"></main>
+
+<footer class="bottom-bar">
+  <button id="download-btn" class="btn btn-primary">
+    <span>📦</span> Baixar fotos (.zip)
+  </button>
+  <button id="menu-btn" class="btn">⋯</button>
+</footer>
+
+<div id="menu-modal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Opções</h3>
+    <p class="modal-sub">Backup, restauração e limpeza de dados.</p>
+    <button class="menu-item" id="export-json-btn"><span class="modal-item-ico">💾</span> Exportar backup (.json)</button>
+    <button class="menu-item" id="import-json-btn"><span class="modal-item-ico">📥</span> Importar backup (.json)</button>
+    <input type="file" id="import-json-input" accept="application/json" hidden>
+    <button class="menu-item" id="export-checklist-btn"><span class="modal-item-ico">📋</span> Exportar checklist (.csv)</button>
+    <button class="menu-item danger" id="clear-btn"><span class="modal-item-ico">🗑️</span> Apagar todas as fotos e notas</button>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="close-menu-btn" style="flex:1">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<div id="loading-overlay" class="loading-overlay hidden">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loading-text">Processando...</div>
+</div>
+
+<script>
+// =====================================================================
+// AUDIT DATA — Royal Enfield São José do Rio Preto
+// =====================================================================
+const AUDIT_DATA = {
+  dealership: 'Royal Enfield São José do Rio Preto',
+  dealerCode: '5200100752',
+  address: 'Av. Arthur Nonato, 4945 — São José do Rio Preto / SP',
+  areas: [
+    {
+      key: 'showroom',
+      label: 'Showroom',
+      sections: [
+        { name: '1 — Fachada', items: [
+          { code: '1.1', title: 'Fachada Frontal', spec: 'Logo Royal Enfield com faixa dourada', instruction: 'A foto deve conter toda a fachada frontal da unidade.', slide: 7 }
+        ]},
+        { name: '2 — Grades', items: [
+          { code: '2.1', title: 'Glassing — Grade Frontal', spec: 'Grade frontal na cor RAL 7024 Suvinil Malha de Aço', instruction: 'A foto deve mostrar a grade frontal da fachada. As portas de enrolar precisam estar fechadas.', slide: 8 },
+          { code: '2.2', title: 'Persianas (Portas de Enrolar)', spec: 'Pintura de persianas perfuradas com acabamento RAL 7024 Cinza Grafite 8261 mate', instruction: '', slide: 8 }
+        ]},
+        { name: '3 — Pisos', items: [
+          { code: '3.1', title: 'Piso do Showroom', spec: 'Eliane ou Portobello 90 x 90 acetinado conforme manual RE', instruction: 'A foto deve mostrar o piso do showroom, de forma aproximada.', slide: 9 },
+          { code: '3.2', title: 'Provador', spec: 'Laminado Tarkett Essence Rústico Candeia', instruction: 'A foto deve mostrar o piso completo do provador.', slide: 9 },
+          { code: '3.3', title: 'Toalete do Showroom', spec: 'Eliane ou Portobello 90 x 90 acetinado conforme manual RE', instruction: 'A foto deve mostrar o piso do banheiro para clientes.', slide: 10 },
+          { code: '3.4', title: 'Degraus e Pisos Externos', spec: 'Granito flamejado / Sydney Gris', instruction: 'A foto deve mostrar a soleira na fachada ou no encontro com outros ambientes como a oficina.', slide: 10 },
+          { code: '3.5', title: 'Piso Externo', spec: 'Piso Sextavado de Concreto Intertravado 25x25x08cm', instruction: 'A foto deve mostrar todo o piso externo da unidade.', slide: 11 }
+        ]},
+        { name: '4 — Paredes', items: [
+          { code: '4.1', title: 'Parede do Showroom', spec: 'Granilha na cor RAL 7045 Suvinil Barra de Ferro - Fosco', instruction: 'A foto deve mostrar a textura granilhada do showroom.', slide: 12 },
+          { code: '4.2', title: 'Parede do Expositor de Acessórios', spec: 'Tijolinho Brick Opala 7 x 25cm - Ceral ou RevestBrick', instruction: 'A foto deve mostrar detalhes do tijolinho brick.', slide: 12 },
+          { code: '4.3', title: 'Showroom Toilete', spec: 'Pintadas na cor RAL 7024 — Suvinil Malha de Aço', instruction: 'Deve mostrar a pintura do banheiro do showroom.', slide: 13 },
+          { code: '4.4', title: 'Showroom Externo', spec: 'Granilha e pintura na cor RAL 7024 Graphite grey - Suvinil Malha de Aço', instruction: 'Deve mostrar a pintura da parte externa da unidade.', slide: 13 },
+          { code: '4.5', title: 'Quadro da GT', spec: 'Quadro da GT', instruction: 'Deve mostrar o quadro GT exposto na parede do showroom.', slide: 14 },
+          { code: '4.6', title: 'Tanques', spec: '6 Tanques', instruction: 'Deve mostrar os tanques expostos na parede do showroom.', slide: 14 },
+          { code: '4.7', title: 'Dado / Wall Panelling with Gold Beading', spec: 'Fundo de folheado de cinza preto tingido com bordas douradas', instruction: '', slide: 15 },
+          { code: '4.8', title: 'Magnetic Board Display', spec: '1 MM thick MS plate with clear coating', instruction: '', slide: 15 },
+          { code: '4.9', title: 'Rodapé', spec: 'Rodapé de 7cm Grafite - Ecovale', instruction: '', slide: 16 },
+          { code: '4.10', title: 'Faixa Dourada (Gold Band)', spec: 'ACM, MDF ou PVC expandido pintados na cor dourada', instruction: '', slide: 16 }
+        ]},
+        { name: '5 — Teto', items: [
+          { code: '5.1', title: 'Teto do Showroom', spec: 'Cor RAL 7022 Suvinil Patativa', instruction: '', slide: 17 },
+          { code: '5.2', title: 'Teto do Toilete do Showroom', spec: 'RAL 9002', instruction: '', slide: 17 },
+          { code: '5.3', title: 'Malha', spec: 'De acordo com as especificações da RE', instruction: 'Somente para showroom com altura superior a 3,60m.', slide: 18 },
+          { code: '5.4', title: 'Vigas e Colunas', spec: 'Cor RAL 7022 Suvinil Patativa', instruction: 'Deve mostrar as vigas e pilares do showroom.', slide: 18 }
+        ]},
+        { name: '6 — Iluminação', items: [
+          { code: '6.1', title: 'Spots de Trilho', spec: 'Conforme layout elétrico', instruction: 'Deve mostrar os trilhos dispostos no teto do showroom.', slide: 19 },
+          { code: '6.2', title: 'Pendentes', spec: 'Conforme layout elétrico', instruction: 'Deve mostrar os pendentes dispostos no teto do showroom.', slide: 19 },
+          { code: '6.3', title: 'Provador e Caixa', spec: '12W LED Redonda com borda preta', instruction: 'Deve mostrar a iluminação disposta no teto dos provadores e caixa.', slide: 20 },
+          { code: '6.4', title: 'Toiletes e Copa', spec: 'Luz branca 18W', instruction: 'Deve mostrar a iluminação disposta no teto dos banheiros e copa.', slide: 20 }
+        ]},
+        { name: '7 — Mobiliário', items: [
+          { code: '7.1', title: 'Móveis Soltos', spec: 'Móveis de metal e madeira conforme especificação RE', instruction: 'Deve mostrar as mesas e assentos dispostos no showroom.', slide: 21 },
+          { code: '7.2', title: 'Acessórios de Varejo', spec: 'Peças de metal com pintura padrão na cor RAL 7022', instruction: 'Deve mostrar as estantes com os acessórios de varejo.', slide: 21 },
+          { code: '7.3', title: 'VM Elementos', spec: 'Conforme especificação RE', instruction: '', slide: 22 }
+        ]},
+        { name: '8 — Elétrico', items: [
+          { code: '8.1', title: 'Tomadas e Toda Parte Elétrica', spec: 'Conforme layout elétrico', instruction: 'Deve mostrar algumas tomadas e interruptores.', slide: 22 }
+        ]},
+        { name: '9 — Divisões', items: [
+          { code: '9.1', title: 'Partition Works — Exterior', spec: 'Wall panneling with Veneer Dyed Black ash', instruction: '', slide: 23 },
+          { code: '9.2', title: 'Partition Works — Interior', spec: 'Dyed Black ash Veneer', instruction: '', slide: 23 },
+          { code: '9.3', title: 'Partition — Trial Room Exterior', spec: 'Dyed Black ash Veneer', instruction: '', slide: 24 },
+          { code: '9.4', title: 'Partition — Trial Room Interior', spec: 'Canvas with digital printing', instruction: '', slide: 24 }
+        ]},
+        { name: '10 — Provador', items: [
+          { code: '10.1', title: 'Tira de Latão', spec: 'Conforme especificação RE', instruction: 'Deve mostrar a tira de latão em sua totalidade.', slide: 25 },
+          { code: '10.2', title: 'Pendurador de Roupas', spec: 'Com logo da RE', instruction: 'Deve mostrar o logo da RE no pendurador de roupas.', slide: 25 },
+          { code: '10.3', title: 'Tecido Canvas', spec: 'Conforme especificação RE', instruction: 'Deve mostrar o provador por completo.', slide: 26 },
+          { code: '10.4', title: 'Espelho', spec: 'Espelho de 6mm — 1,70 x 70cm instalado a 25cm do piso', instruction: 'Deve mostrar o espelho e suas medidas.', slide: 26 }
+        ]},
+        { name: '11 — Toaletes', items: [
+          { code: '11.1', title: 'Louça Sanitária', spec: 'Na cor branca', instruction: 'Deve mostrar uma das louças sanitárias dos banheiros.', slide: 27 },
+          { code: '11.2/11.3', title: 'Torneira e Espelho', spec: 'Torneira e espelho 6mm', instruction: 'Lavatório do banheiro com torneira e espelho.', slide: 27 }
+        ]},
+        { name: '12 — Visuais', items: [
+          { code: '12.1', title: 'Quadro da História', spec: 'Conforme especificação RE', instruction: 'Deve mostrar o Story Wall na parede do showroom.', slide: 28 },
+          { code: '12.2', title: 'VM Images — Small', spec: 'Big posters - Top of accessoires fixture', instruction: '', slide: 28 },
+          { code: '12.3', title: 'Poster Grande Dupla Face', spec: 'Conforme especificação RE', instruction: '', slide: 29 },
+          { code: '12.4', title: 'Big Posters — Top of Accessoires Fixture', spec: 'Conforme especificação RE', instruction: '', slide: 29 },
+          { code: '12.5', title: 'Poster de Vendas', spec: 'Conforme especificação RE', instruction: '', slide: 30 },
+          { code: '12.6', title: 'Placa de Identificação do Produto', spec: 'Conforme especificação RE', instruction: '', slide: 30 }
+        ]},
+        { name: '13 — Ar Condicionado', items: [
+          { code: '13.1', title: 'AC do Showroom', spec: 'Na cor da parede e/ou teto onde for instalado', instruction: 'Deve mostrar pelo menos 2 máquinas de ar condicionado dispostas no showroom.', slide: 31 },
+          { code: '13.2', title: 'AC do Escritório', spec: 'Tipo split', instruction: '', slide: 32 },
+          { code: '13.3', title: 'AC da MC Cabin', spec: 'Tipo split', instruction: '', slide: 32 }
+        ]},
+        { name: '14 — Portas e Maçanetas', items: [
+          { code: '14.1', title: 'Maçaneta RE', spec: 'Conforme especificação RE', instruction: 'Deve mostrar a maçaneta de entrada da loja.', slide: 33 },
+          { code: '14.2', title: 'Portas', spec: 'De vidro com adesivo de segurança RE', instruction: 'Deve mostrar a porta de entrada em sua totalidade.', slide: 33 },
+          { code: '14.3', title: 'Cortina Provador', spec: 'Cortina na cor preta', instruction: 'Deve mostrar o provador visto do showroom.', slide: 34 },
+          { code: '14.4', title: 'Outras Portas', spec: 'Conforme especificação RE', instruction: 'Deve mostrar porta do banheiro e/ou salas diversas.', slide: 34 }
+        ]},
+        { name: '15 — Layouts', items: [
+          { code: '15.1', title: 'Aderência do Layout Básico', spec: 'Conforme especificação RE', instruction: 'Deve mostrar uma foto geral do showroom.', slide: 35 },
+          { code: '15.2', title: 'Aderência da Elevação de Paredes', spec: 'Conforme especificação RE', instruction: 'Deve mostrar uma foto da parede do showroom com a mesma perspectiva do corte do projeto executivo.', slide: 35 },
+          { code: '15.3', title: 'Aderência do Layout de Interruptores', spec: 'Conforme especificação RE e projeto executivo', instruction: 'Deve mostrar algumas tomadas e interruptores de parede.', slide: 36 },
+          { code: '15.4', title: 'Aderência do Layout Elétrico', spec: 'Conforme especificação RE e projeto executivo', instruction: 'Deve mostrar algumas tomadas e interruptores de piso.', slide: 36 }
+        ]},
+        { name: '16 — Áreas', items: [
+          { code: '16.1', title: 'PDI & Estoque', spec: 'Conforme layout e especificação RE', instruction: '', slide: 37 },
+          { code: '16.2', title: 'Estacionamento para Clientes', spec: 'Conforme layout e especificação RE', instruction: '', slide: 37 },
+          { code: '16.3', title: 'Estacionamento para Empregados', spec: 'Conforme layout e especificação RE', instruction: '', slide: 38 },
+          { code: '16.4', title: 'Estacionamento Test Ride', spec: 'Conforme layout e especificação RE', instruction: '', slide: 38 }
+        ]},
+        { name: '17 — Outros', items: [
+          { code: '17.1', title: 'TV', spec: '40" LED', instruction: 'Deve mostrar a TV do showroom.', slide: 39 },
+          { code: '17.2', title: 'Câmera de Segurança', spec: 'Conforme especificação RE', instruction: '', slide: 39 },
+          { code: '17.3', title: 'Gerador', spec: '15 KVA', instruction: '', slide: 40 },
+          { code: '17.4', title: 'Som', spec: 'Sistema de som ambiente', instruction: '', slide: 40 },
+          { code: '17.5', title: 'Extintores', spec: 'Conforme necessidade e padrões normativos', instruction: '', slide: 41 },
+          { code: '17.6', title: 'Purificador de Água', spec: 'Bebedouro do showroom', instruction: '', slide: 41 },
+          { code: '17.7', title: 'Máquina de Café', spec: 'Cafeteira para clientes', instruction: '', slide: 42 },
+          { code: '17.8', title: 'Motos de Test Ride', spec: 'Conforme negociação comercial', instruction: '', slide: 42 },
+          { code: '17.9', title: 'Vendas', spec: 'Registro de Vendas (DMS)', instruction: 'Pode ser print do sistema de vendas.', slide: 43 },
+          { code: '17.10', title: 'Colaboradores', spec: 'Equipe completa', instruction: 'Foto de toda equipe uniformizada conforme padrão RE.', slide: 43 },
+          { code: '17.11', title: 'Uniforme de Vendas', spec: 'Conforme especificação RE', instruction: 'Deve mostrar equipe de vendas uniformizada.', slide: 44 },
+          { code: '17.12', title: 'Conexão de Energia Trifásica', spec: 'Conforme especificação RE', instruction: '', slide: 44 },
+          { code: '17.13', title: 'Cabides RE', spec: '50 Cabides', instruction: 'Deve mostrar os cabides organizados, seguindo a sequência de cores conforme padrão RE.', slide: 45 },
+          { code: '17.14', title: 'Acessórios', spec: 'Conforme especificação RE', instruction: 'Mostrar armário com acessórios, capacetes, etc.', slide: 45 }
+        ]}
+      ]
+    },
+    {
+      key: 'oficina',
+      label: 'Oficina',
+      sections: [
+        { name: '1 — Fachada', items: [
+          { code: '1.1/1.2', title: 'Fachada da Oficina', spec: 'Logo Royal Enfield com faixa dourada', instruction: 'A foto deve conter toda a fachada da oficina.', slide: 47 }
+        ]},
+        { name: '2 — Grades', items: [
+          { code: '2.1', title: 'Sala de Espera / Recepção de Serviço', spec: 'Conforme especificação RE', instruction: 'A foto deve mostrar a sala de espera da oficina.', slide: 48 },
+          { code: '2.2', title: 'Persianas (Portas de Enrolar)', spec: 'Pintura de persianas perfuradas com acabamento RAL 7024 Cinza Grafite 8261 mate', instruction: 'As portas de enrolar da oficina precisam estar fechadas.', slide: 48 }
+        ]},
+        { name: '3 — Pisos', items: [
+          { code: '3.1', title: 'Piso da Oficina', spec: 'Eliane ou Portobello 60 x 60 acetinado conforme manual RE', instruction: 'A foto deve mostrar o piso da oficina, de forma aproximada.', slide: 49 },
+          { code: '3.2', title: 'Box de Lavagem', spec: 'Eliane ou Portobello 60 x 60 acetinado conforme manual RE', instruction: 'A foto deve mostrar o piso completo do box de lavagem.', slide: 49 },
+          { code: '3.3', title: 'Sala de Espera', spec: 'Eliane ou Portobello 90 x 90 acetinado conforme manual RE', instruction: 'A foto deve mostrar o piso da sala de espera.', slide: 50 },
+          { code: '3.4', title: 'Banheiros', spec: 'Eliane ou Portobello 60 x 60 acetinado conforme manual RE', instruction: 'A foto deve mostrar o banheiro da oficina.', slide: 50 },
+          { code: '3.5', title: 'Soleiras', spec: 'Flamed granite / Sydney Gris', instruction: 'A foto deve mostrar a soleira na fachada ou no encontro com outros ambientes.', slide: 51 },
+          { code: '3.6', title: 'Rampa (caso exista)', spec: 'Concreto antiderrapante', instruction: '', slide: 51 },
+          { code: '3.7', title: 'Demarcação de Vagas', spec: 'Fita amarela de 10cm de largura', instruction: 'A foto deve mostrar as vagas de espera de serviço.', slide: 52 },
+          { code: '3.8', title: 'Piso Externo', spec: 'Piso Sextavado Concreto Intertravado 25x25x08cm', instruction: '', slide: 52 }
+        ]},
+        { name: '4 — Paredes', items: [
+          { code: '4.1', title: 'Paredes da Oficina e Sala de Motor', spec: 'Até 1,80m do piso na cor RAL 7005 Acetinado', instruction: '', slide: 53 },
+          { code: '4.2', title: 'Paredes com Divisórias até 3,60m', spec: 'Enamel RAL 7005 Mouse Grey', instruction: '', slide: 53 },
+          { code: '4.3/4.4', title: 'Golden Band a 1,80m do Piso e Pintura Acima', spec: 'Gold band da oficina e pintura acima na cor RAL 9002 Acetinado', instruction: 'A foto deve ser ampla mostrando as paredes e teto da oficina.', slide: 54 },
+          { code: '4.5', title: 'Sala de Espera', spec: 'Cor RAL 9002 Acetinado', instruction: '', slide: 54 },
+          { code: '4.6', title: 'Paredes do Toalete da Oficina', spec: 'Cor RAL 9002 Acetinado', instruction: '', slide: 55 },
+          { code: '4.7', title: 'Paredes Externas da Oficina', spec: 'Cor RAL 7024 — Suvinil Malha de Aço', instruction: '', slide: 55 },
+          { code: '4.8', title: 'Fachada e Placas de Sinalização', spec: 'Devem ser fixadas conforme especificação RE', instruction: '', slide: 56 },
+          { code: '4.9', title: 'Desenhos dos Motores', spec: 'Devem ser fixados conforme especificação RE', instruction: '', slide: 56 }
+        ]},
+        { name: '5 — Teto', items: [
+          { code: '5.1', title: 'Teto Oficina', spec: 'Na cor branca conforme especificação RE', instruction: '', slide: 57 },
+          { code: '5.2', title: 'Service Center — RCC Roofing', spec: 'Cor RAL 9002 Acetinado', instruction: '', slide: 57 },
+          { code: '5.3', title: 'Service Center Toilet', spec: 'Cor RAL 9002 Acetinado', instruction: '', slide: 58 }
+        ]},
+        { name: '6 — Iluminação', items: [
+          { code: '6.1', title: 'Box de Serviço', spec: 'Luminária dupla de LED 28W', instruction: '', slide: 58 },
+          { code: '6.2', title: 'Outras Áreas da Oficina', spec: 'Conforme especificação RE', instruction: '', slide: 59 },
+          { code: '6.3', title: 'Outras Áreas do Service Center', spec: 'Luzes cônicas conforme especificações', instruction: '', slide: 59 }
+        ]},
+        { name: '7 — Mobiliário', items: [
+          { code: '7.1', title: 'Sala de Espera', spec: 'Móveis de metal e madeira conforme especificação RE', instruction: '', slide: 60 },
+          { code: '7.2', title: 'Escritório', spec: 'MDF com laminado conforme especificações RE', instruction: '', slide: 60 }
+        ]},
+        { name: '8 — Elétrica', items: [
+          { code: '8.1', title: 'Elétrica da Oficina', spec: 'Conforme layout elétrico', instruction: 'Deve mostrar algumas tomadas e interruptores.', slide: 61 }
+        ]},
+        { name: '9 — Divisões', items: [
+          { code: '9.1', title: 'Sala de Espera / Recepção de Serviço', spec: 'Porta de vidro entre Oficina e Sala de Espera', instruction: '', slide: 61 },
+          { code: '9.2', title: 'Sala do Gerente de Serviços', spec: 'Porta de vidro da Sala do Gerente de Serviços', instruction: '', slide: 62 },
+          { code: '9.3', title: 'Outras Divisões', spec: 'Parede com blocos e acabamento em pintura de cor/tonalidade aprovada', instruction: '', slide: 62 }
+        ]},
+        { name: '10 — Portas', items: [
+          { code: '10.1', title: 'Portas dos Toaletes, Sala de Motor, Peças etc.', spec: 'Vidro ou madeira pintada na cor RAL 7005', instruction: '', slide: 63 },
+          { code: '10.2', title: 'Sala do Gerente de Serviços', spec: 'Vidro ou madeira pintada na cor RAL 7005', instruction: '', slide: 63 },
+          { code: '10.3', title: 'Sala de Espera / Recepção de Serviço', spec: 'Porta de vidro de 10mm com mola', instruction: '', slide: 64 }
+        ]},
+        { name: '11 — Toaletes', items: [
+          { code: '11.1', title: 'Torneiras', spec: 'Lavatório do banheiro da oficina com torneira', instruction: '', slide: 64 },
+          { code: '11.2', title: 'Sanitários', spec: 'Pia e vaso sanitários na cor branca', instruction: '', slide: 65 },
+          { code: '11.3', title: 'Espelho', spec: 'Espelho de 5mm', instruction: '', slide: 65 }
+        ]},
+        { name: '12 — Equipamentos', items: [
+          { code: '12.1', title: 'Elevador de Serviços', spec: 'Conforme especificação RE', instruction: '', slide: 66 },
+          { code: '12.2', title: 'Equipamentos de Oficina', spec: 'Conforme especificação RE', instruction: '', slide: 66 },
+          { code: '12.3', title: 'Equipamentos de Medições', spec: 'Conforme especificação RE', instruction: '', slide: 67 },
+          { code: '12.4', title: 'Ferramental', spec: 'Conforme especificação RE', instruction: '', slide: 67 },
+          { code: '12.5', title: 'Gerador', spec: 'Conforme especificação RE', instruction: '', slide: 68 },
+          { code: '12.6', title: 'Bancada de Trabalho', spec: 'Conforme especificação RE', instruction: '', slide: 68 }
+        ]},
+        { name: '13 — Ar Condicionado', items: [
+          { code: '13.1', title: 'Sala de Espera', spec: 'Split na mesma cor da parede ou teto onde for aplicado', instruction: '', slide: 69 },
+          { code: '13.2', title: 'Escritório', spec: 'Split na mesma cor da parede ou teto onde for aplicado', instruction: '', slide: 69 }
+        ]},
+        { name: '14 — Portas e Maçanetas', items: [
+          { code: '14.1', title: 'Outras Portas', spec: 'Conforme especificação RE', instruction: 'Inserir fotos de 2 portas diferentes que fazem divisa com a oficina (escritório, banheiros etc.).', slide: 70 }
+        ]},
+        { name: '15 — Layouts', items: [
+          { code: '15.1', title: 'Adesão do Layout da Oficina', spec: 'Conforme especificação RE e projeto executivo', instruction: 'Deve mostrar o máximo possível da oficina.', slide: 71 },
+          { code: '15.2', title: 'Adesão do Layout Elétrico', spec: 'Conforme especificação RE e projeto executivo', instruction: 'Deve mostrar algumas tomadas e interruptores.', slide: 71 }
+        ]},
+        { name: '16 — Estacionamento', items: [
+          { code: '16.1', title: 'Estacionamento', spec: 'Vagas de estacionamento devidamente demarcadas', instruction: 'Deve mostrar o estacionamento em sua totalidade.', slide: 72 }
+        ]},
+        { name: '17 — Peças', items: [
+          { code: '17.1', title: 'Peças de Reposição', spec: 'Conforme especificação RE', instruction: 'Deve mostrar o estoque.', slide: 73 },
+          { code: '17.2', title: 'Sistema de Rack', spec: 'Conforme especificação RE', instruction: '', slide: 73 },
+          { code: '17.3', title: 'Caixa', spec: 'Área de atendimento e pagamento dos serviços', instruction: 'Deve mostrar o caixa da venda de peças e serviços.', slide: 74 }
+        ]},
+        { name: '18 — Outros', items: [
+          { code: '18.1', title: 'TV', spec: '40" LED', instruction: '', slide: 75 },
+          { code: '18.2', title: 'Ventiladores', spec: 'Paredes da área de oficina com ventiladores', instruction: '', slide: 75 },
+          { code: '18.3', title: 'Exaustor', spec: 'Conforme especificação RE', instruction: '', slide: 76 },
+          { code: '18.4', title: 'CCTV', spec: 'Conforme especificação RE', instruction: '', slide: 76 },
+          { code: '18.5', title: 'Kit de Primeiros Socorros', spec: 'De acordo com os padrões do governo', instruction: '', slide: 77 },
+          { code: '18.6', title: 'Extintores', spec: 'Conforme legislação dos Bombeiros', instruction: '', slide: 77 },
+          { code: '18.7', title: 'Purificador de Água', spec: 'Bebedouro da área de serviços', instruction: '', slide: 78 },
+          { code: '18.8', title: 'Registro de Serviços', spec: 'Conforme especificação RE', instruction: 'Pode ser print da tela com os registros de serviços.', slide: 78 },
+          { code: '18.9', title: 'Técnicos', spec: 'Conforme recomendação RE', instruction: 'Deve mostrar equipe da oficina uniformizada.', slide: 79 },
+          { code: '18.10', title: 'Uniforme', spec: 'Conforme especificação RE', instruction: '', slide: 79 }
+        ]}
+      ]
+    }
+  ]
+};
+
+// =====================================================================
+// IndexedDB layer
+// =====================================================================
+const DB_NAME = 'audit_re_sjrp';
+const DB_VERSION = 1;
+const STORE = 'items';
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = e => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(STORE)) {
+        db.createObjectStore(STORE, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = e => reject(e.target.error);
+  });
+}
+
+async function dbPut(record) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).put(record);
+    tx.oncomplete = () => resolve();
+    tx.onerror = e => reject(e.target.error);
+  });
+}
+
+async function dbGet(id) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readonly');
+    const req = tx.objectStore(STORE).get(id);
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = e => reject(e.target.error);
+  });
+}
+
+async function dbGetAll() {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readonly');
+    const req = tx.objectStore(STORE).getAll();
+    req.onsuccess = () => resolve(req.result || []);
+    req.onerror = e => reject(e.target.error);
+  });
+}
+
+async function dbDelete(id) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).delete(id);
+    tx.oncomplete = () => resolve();
+    tx.onerror = e => reject(e.target.error);
+  });
+}
+
+async function dbClear() {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).clear();
+    tx.oncomplete = () => resolve();
+    tx.onerror = e => reject(e.target.error);
+  });
+}
+
+// =====================================================================
+// In-memory state cache (lazy-loaded from IndexedDB)
+// =====================================================================
+const state = {};  // id -> { id, blob, thumb, note, na, capturedAt }
+
+function makeId(areaKey, code) {
+  return `${areaKey}__${code}`.replace(/[^a-zA-Z0-9_.\-]/g, '_');
+}
+
+function allItems() {
+  const out = [];
+  for (const area of AUDIT_DATA.areas) {
+    for (const sec of area.sections) {
+      for (const item of sec.items) {
+        out.push({ areaKey: area.key, areaLabel: area.label, section: sec.name, ...item, id: makeId(area.key, item.code) });
+      }
+    }
+  }
+  return out;
+}
+
+async function loadState() {
+  const all = await dbGetAll();
+  for (const rec of all) state[rec.id] = rec;
+}
+
+// =====================================================================
+// Image compression
+// =====================================================================
+function compressImage(file, maxW = 1920, quality = 0.85) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      let w = img.width, h = img.height;
+      if (w > maxW) { h = Math.round(h * (maxW / w)); w = maxW; }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      canvas.toBlob(blob => {
+        URL.revokeObjectURL(img.src);
+        if (blob) resolve(blob); else reject(new Error('toBlob falhou'));
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = () => { URL.revokeObjectURL(img.src); reject(new Error('Falha ao carregar imagem')); };
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+function makeThumb(file, size = 320) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(size / img.width, size / img.height, 1);
+      const w = Math.round(img.width * scale);
+      const h = Math.round(img.height * scale);
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+      URL.revokeObjectURL(img.src);
+      resolve(dataUrl);
+    };
+    img.onerror = () => { URL.revokeObjectURL(img.src); resolve(null); };
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+// =====================================================================
+// Minimal in-browser ZIP writer (store method, no compression)
+// =====================================================================
+const CRC_TABLE = (() => {
+  const t = new Uint32Array(256);
+  for (let i = 0; i < 256; i++) {
+    let c = i;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[i] = c >>> 0;
+  }
+  return t;
+})();
+
+function crc32(buf) {
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < buf.length; i++) c = CRC_TABLE[(c ^ buf[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+
+function dosTime(d) {
+  return ((d.getHours() & 0x1F) << 11) | ((d.getMinutes() & 0x3F) << 5) | ((d.getSeconds() >>> 1) & 0x1F);
+}
+function dosDate(d) {
+  return (((d.getFullYear() - 1980) & 0x7F) << 9) | (((d.getMonth() + 1) & 0xF) << 5) | (d.getDate() & 0x1F);
+}
+
+async function buildZip(files) {
+  const enc = new TextEncoder();
+  const chunks = [];
+  const central = [];
+  let offset = 0;
+  const now = new Date();
+  const time = dosTime(now);
+  const date = dosDate(now);
+
+  for (const f of files) {
+    const data = f.data instanceof Blob ? new Uint8Array(await f.data.arrayBuffer()) : f.data;
+    const nameBuf = enc.encode(f.name);
+    const crc = crc32(data);
+    const size = data.length;
+
+    const lfh = new ArrayBuffer(30);
+    const dv = new DataView(lfh);
+    dv.setUint32(0, 0x04034b50, true);
+    dv.setUint16(4, 20, true);
+    dv.setUint16(6, 0x0800, true);
+    dv.setUint16(8, 0, true);
+    dv.setUint16(10, time, true);
+    dv.setUint16(12, date, true);
+    dv.setUint32(14, crc, true);
+    dv.setUint32(18, size, true);
+    dv.setUint32(22, size, true);
+    dv.setUint16(26, nameBuf.length, true);
+    dv.setUint16(28, 0, true);
+    chunks.push(new Uint8Array(lfh), nameBuf, data);
+
+    const cd = new ArrayBuffer(46);
+    const dvc = new DataView(cd);
+    dvc.setUint32(0, 0x02014b50, true);
+    dvc.setUint16(4, 0x031E, true);
+    dvc.setUint16(6, 20, true);
+    dvc.setUint16(8, 0x0800, true);
+    dvc.setUint16(10, 0, true);
+    dvc.setUint16(12, time, true);
+    dvc.setUint16(14, date, true);
+    dvc.setUint32(16, crc, true);
+    dvc.setUint32(20, size, true);
+    dvc.setUint32(24, size, true);
+    dvc.setUint16(28, nameBuf.length, true);
+    dvc.setUint16(30, 0, true);
+    dvc.setUint16(32, 0, true);
+    dvc.setUint16(34, 0, true);
+    dvc.setUint16(36, 0, true);
+    dvc.setUint32(38, 0, true);
+    dvc.setUint32(42, offset, true);
+    central.push(new Uint8Array(cd), nameBuf);
+    offset += 30 + nameBuf.length + size;
+  }
+
+  const cdStart = offset;
+  let cdSize = 0;
+  for (const c of central) { chunks.push(c); cdSize += c.length; }
+
+  const eocd = new ArrayBuffer(22);
+  const dve = new DataView(eocd);
+  dve.setUint32(0, 0x06054b50, true);
+  dve.setUint16(4, 0, true);
+  dve.setUint16(6, 0, true);
+  dve.setUint16(8, files.length, true);
+  dve.setUint16(10, files.length, true);
+  dve.setUint32(12, cdSize, true);
+  dve.setUint32(16, cdStart, true);
+  dve.setUint16(20, 0, true);
+  chunks.push(new Uint8Array(eocd));
+
+  return new Blob(chunks, { type: 'application/zip' });
+}
+
+// =====================================================================
+// UI rendering
+// =====================================================================
+let activeArea = 'showroom';
+let activeFilter = 'all';
+
+function slugify(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_|_$/g, '')
+    .substring(0, 50);
+}
+
+function fileNameFor(it) {
+  const slide = String(it.slide).padStart(2, '0');
+  const code = it.code.replace(/[\/]/g, '-');
+  return `Slide_${slide}__${it.areaLabel}__Item_${code}__${slugify(it.title)}.jpg`;
+}
+
+function statusOf(id) {
+  const rec = state[id];
+  if (!rec) return 'pending';
+  if (rec.na) return 'na';
+  if (rec.blob) return 'done';
+  return 'pending';
+}
+
+function matchesFilter(id) {
+  if (activeFilter === 'all') return true;
+  return statusOf(id) === activeFilter;
+}
+
+function render() {
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  const area = AUDIT_DATA.areas.find(a => a.key === activeArea);
+  if (!area) return;
+
+  // Area summary
+  const all = area.sections.flatMap(s => s.items).map(it => makeId(area.key, it.code));
+  const doneCount = all.filter(id => statusOf(id) === 'done').length;
+  const naCount = all.filter(id => statusOf(id) === 'na').length;
+  const pendCount = all.length - doneCount - naCount;
+  const summary = document.createElement('div');
+  summary.className = 'area-summary';
+  summary.innerHTML = `
+    <span>Total: <strong>${all.length}</strong> · ✓ <strong>${doneCount}</strong> · ⏳ <strong>${pendCount}</strong> · N/A <strong>${naCount}</strong></span>
+    <span>${area.label}</span>
+  `;
+  content.appendChild(summary);
+
+  // Sections
+  for (const sec of area.sections) {
+    const secEl = document.createElement('div');
+    secEl.className = 'section';
+    const ids = sec.items.map(it => makeId(area.key, it.code));
+    const sDone = ids.filter(id => statusOf(id) === 'done').length;
+    const visibleItems = sec.items.filter(it => matchesFilter(makeId(area.key, it.code)));
+    if (visibleItems.length === 0) continue;
+
+    secEl.innerHTML = `
+      <div class="section-header">
+        <span class="section-title">${sec.name}</span>
+        <div class="section-meta">
+          <span>${sDone}/${ids.length}</span>
+          <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+        </div>
+      </div>
+      <div class="section-body"></div>
+    `;
+    const body = secEl.querySelector('.section-body');
+    secEl.querySelector('.section-header').addEventListener('click', () => {
+      secEl.classList.toggle('collapsed');
+    });
+
+    for (const item of visibleItems) {
+      body.appendChild(renderItem(area, item));
+    }
+
+    content.appendChild(secEl);
+  }
+
+  updateGlobalStats();
+}
+
+function renderItem(area, item) {
+  const id = makeId(area.key, item.code);
+  const rec = state[id] || {};
+  const status = statusOf(id);
+
+  const card = document.createElement('div');
+  card.className = 'item-card ' + (status === 'done' ? 'done' : status === 'na' ? 'na' : '');
+  card.dataset.id = id;
+
+  const photoHtml = rec.blob && !rec.na
+    ? `<div class="photo-preview-wrap">
+         <img class="photo-preview" src="${rec.thumb}" alt="">
+         <span class="photo-badge">SLIDE ${item.slide}</span>
+       </div>`
+    : `<div class="photo-empty">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg>
+         <span>${rec.na ? 'Marcado como N/A' : 'Sem foto ainda'}</span>
+       </div>`;
+
+  card.innerHTML = `
+    <div class="item-head">
+      <div class="item-code">${item.code}</div>
+      <div class="item-info">
+        <div class="item-title">${item.title}</div>
+        <div class="item-spec">${item.spec}</div>
+        <div class="item-slide-ref">Slide ${item.slide}</div>
+      </div>
+    </div>
+    ${item.instruction ? `<div class="item-instruction">${item.instruction}</div>` : ''}
+    <div class="photo-area">
+      ${photoHtml}
+      <div class="photo-actions">
+        <input type="file" accept="image/*" capture="environment" hidden id="file-${id}">
+        <button class="btn btn-primary" data-act="capture">${rec.blob ? '🔄 Refazer' : '📷 Tirar foto'}</button>
+        ${rec.blob ? `<button class="btn btn-secondary btn-icon" data-act="view" title="Ver em tamanho original">🔍</button>` : ''}
+        <button class="btn btn-na ${rec.na ? 'active' : ''}" data-act="na">N/A</button>
+      </div>
+    </div>
+    <div class="note-wrap">
+      <div class="note-label">Observação / andamento</div>
+      <textarea class="note-input" data-act="note" rows="1" placeholder="Anote o status, andamento ou ${item.instruction ? 'detalhes' : 'descrição'}...">${rec.note || ''}</textarea>
+    </div>
+  `;
+
+  // Bind events
+  const fileInput = card.querySelector(`#file-${CSS.escape(id)}`);
+  card.querySelector('[data-act="capture"]').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', e => handleFileSelect(e, area, item));
+  card.querySelector('[data-act="na"]').addEventListener('click', () => toggleNA(area, item));
+  const viewBtn = card.querySelector('[data-act="view"]');
+  if (viewBtn) viewBtn.addEventListener('click', () => viewFullImage(rec.blob, item));
+  const noteInput = card.querySelector('[data-act="note"]');
+  let noteTimer;
+  noteInput.addEventListener('input', e => {
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => saveNote(area, item, e.target.value), 400);
+  });
+
+  return card;
+}
+
+async function handleFileSelect(e, area, item) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  showLoading('Otimizando imagem...');
+  try {
+    const [compressed, thumb] = await Promise.all([
+      compressImage(file),
+      makeThumb(file)
+    ]);
+    const id = makeId(area.key, item.code);
+    const existing = state[id] || { id, note: '', na: false };
+    const rec = {
+      ...existing,
+      id,
+      blob: compressed,
+      thumb,
+      na: false,
+      capturedAt: new Date().toISOString(),
+      fileName: fileNameFor({ ...item, areaLabel: area.label })
+    };
+    state[id] = rec;
+    await dbPut(rec);
+    hideLoading();
+    render();
+    toast('Foto salva!', 'success');
+    e.target.value = '';
+  } catch (err) {
+    hideLoading();
+    console.error(err);
+    toast('Erro ao processar foto: ' + err.message, 'error');
+  }
+}
+
+async function toggleNA(area, item) {
+  const id = makeId(area.key, item.code);
+  const existing = state[id] || { id, note: '' };
+  const newNA = !existing.na;
+  const rec = { ...existing, id, na: newNA };
+  if (newNA) {
+    // Remove blob when marking as N/A
+    delete rec.blob;
+    delete rec.thumb;
+    delete rec.capturedAt;
+  }
+  state[id] = rec;
+  await dbPut(rec);
+  render();
+  toast(newNA ? 'Marcado como N/A' : 'Removido N/A', 'success');
+}
+
+async function saveNote(area, item, note) {
+  const id = makeId(area.key, item.code);
+  const existing = state[id] || { id, na: false };
+  const rec = { ...existing, id, note };
+  state[id] = rec;
+  await dbPut(rec);
+}
+
+function viewFullImage(blob, item) {
+  if (!blob) return;
+  const url = URL.createObjectURL(blob);
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <div style="max-width: 95vw; max-height: 95vh; display: flex; flex-direction: column; gap: 10px;">
+      <div style="color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-align: center;">
+        Item ${item.code} · Slide ${item.slide}
+      </div>
+      <img src="${url}" style="max-width: 100%; max-height: 80vh; border-radius: 8px; border: 1px solid var(--gold-dark);">
+      <button class="btn btn-secondary" id="close-view">Fechar</button>
+    </div>
+  `;
+  modal.addEventListener('click', e => {
+    if (e.target === modal || e.target.id === 'close-view') {
+      URL.revokeObjectURL(url);
+      modal.remove();
+    }
+  });
+  document.body.appendChild(modal);
+}
+
+// =====================================================================
+// Global stats & UI helpers
+// =====================================================================
+function updateGlobalStats() {
+  const all = allItems();
+  let totalDone = 0, totalNA = 0;
+  for (const it of all) {
+    const s = statusOf(it.id);
+    if (s === 'done') totalDone++;
+    else if (s === 'na') totalNA++;
+  }
+  const total = all.length;
+  document.getElementById('done-count').textContent = totalDone;
+  document.getElementById('total-count').textContent = total;
+  const pct = total > 0 ? ((totalDone + totalNA) / total * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  // Tab counts
+  for (const area of AUDIT_DATA.areas) {
+    const ids = area.sections.flatMap(s => s.items.map(it => makeId(area.key, it.code)));
+    const d = ids.filter(id => statusOf(id) === 'done').length;
+    const el = document.getElementById('count-' + area.key);
+    if (el) el.textContent = `${d}/${ids.length}`;
+  }
+}
+
+function showLoading(msg) {
+  document.getElementById('loading-text').textContent = msg || 'Processando...';
+  document.getElementById('loading-overlay').classList.remove('hidden');
+}
+function hideLoading() {
+  document.getElementById('loading-overlay').classList.add('hidden');
+}
+
+let toastTimer;
+function toast(msg, kind) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast' + (kind ? ' toast-' + kind : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.add('hidden'), 2500);
+}
+
+// =====================================================================
+// Download / Export
+// =====================================================================
+async function downloadAllZip() {
+  const all = allItems().filter(it => state[it.id] && state[it.id].blob);
+  if (all.length === 0) {
+    toast('Nenhuma foto para baixar ainda', 'error');
+    return;
+  }
+
+  showLoading(`Montando ZIP com ${all.length} foto(s)...`);
+
+  try {
+    const files = [];
+    // README
+    const lines = [
+      `RELATÓRIO DE IMAGENS — AUDIT SHEET`,
+      `Concessionária: ${AUDIT_DATA.dealership}`,
+      `Dealer Code: ${AUDIT_DATA.dealerCode}`,
+      `Endereço: ${AUDIT_DATA.address}`,
+      `Gerado em: ${new Date().toLocaleString('pt-BR')}`,
+      ``,
+      `Fotos contidas: ${all.length}`,
+      ``,
+      `Cada arquivo segue o padrão: Slide_XX__Area__Item_CODE__Titulo.jpg`,
+      `Basta arrastar cada foto para o slide correspondente no .pptx.`,
+      ``,
+      `------------------------------------------`,
+      `LISTA DE FOTOS:`,
+      ``
+    ];
+    for (const it of all) {
+      const rec = state[it.id];
+      lines.push(`Slide ${String(it.slide).padStart(2,'0')} · ${it.areaLabel} · Item ${it.code} — ${it.title}`);
+      if (rec.note) lines.push(`   Nota: ${rec.note.replace(/\n/g,' ')}`);
+    }
+    lines.push('', '------------------------------------------', 'ITENS PENDENTES OU N/A:', '');
+    for (const it of allItems()) {
+      const rec = state[it.id];
+      const st = statusOf(it.id);
+      if (st === 'done') continue;
+      const tag = st === 'na' ? 'N/A' : 'PENDENTE';
+      lines.push(`[${tag}] Slide ${String(it.slide).padStart(2,'0')} · ${it.areaLabel} · Item ${it.code} — ${it.title}`);
+      if (rec && rec.note) lines.push(`   Nota: ${rec.note.replace(/\n/g,' ')}`);
+    }
+    files.push({ name: '_LEIA-ME.txt', data: new TextEncoder().encode(lines.join('\n')) });
+
+    // Photos organized in subfolders
+    for (const it of all) {
+      const rec = state[it.id];
+      const folder = it.areaLabel === 'Showroom' ? '01_Showroom' : '02_Oficina';
+      files.push({
+        name: `${folder}/${fileNameFor(it)}`,
+        data: rec.blob
+      });
+    }
+
+    const zipBlob = await buildZip(files);
+    const ts = new Date().toISOString().slice(0,10);
+    triggerDownload(zipBlob, `Audit_Sheet_Fotos_${ts}.zip`);
+    hideLoading();
+    toast(`ZIP baixado com ${all.length} foto(s)`, 'success');
+  } catch (err) {
+    hideLoading();
+    console.error(err);
+    toast('Erro ao gerar ZIP: ' + err.message, 'error');
+  }
+}
+
+function triggerDownload(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+    a.remove();
+  }, 100);
+}
+
+async function exportJSON() {
+  const all = await dbGetAll();
+  // Convert blobs to base64
+  const payload = {
+    version: 1,
+    dealership: AUDIT_DATA.dealership,
+    exportedAt: new Date().toISOString(),
+    records: []
+  };
+  showLoading('Gerando backup...');
+  for (const r of all) {
+    const entry = { id: r.id, note: r.note || '', na: !!r.na, capturedAt: r.capturedAt || null };
+    if (r.blob) {
+      entry.blob = await blobToBase64(r.blob);
+      entry.fileName = r.fileName || null;
+    }
+    payload.records.push(entry);
+  }
+  hideLoading();
+  const json = JSON.stringify(payload, null, 2);
+  triggerDownload(new Blob([json], { type: 'application/json' }), `Audit_Backup_${new Date().toISOString().slice(0,10)}.json`);
+  toast('Backup exportado', 'success');
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => {
+      const result = r.result;
+      const idx = result.indexOf(',');
+      resolve(result.slice(idx + 1));
+    };
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(blob);
+  });
+}
+
+function base64ToBlob(b64, type = 'image/jpeg') {
+  const binary = atob(b64);
+  const arr = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) arr[i] = binary.charCodeAt(i);
+  return new Blob([arr], { type });
+}
+
+async function importJSON(file) {
+  showLoading('Importando backup...');
+  try {
+    const text = await file.text();
+    const data = JSON.parse(text);
+    if (!data.records || !Array.isArray(data.records)) throw new Error('Formato inválido');
+    let count = 0;
+    for (const r of data.records) {
+      const rec = {
+        id: r.id,
+        note: r.note || '',
+        na: !!r.na,
+        capturedAt: r.capturedAt || null
+      };
+      if (r.blob) {
+        rec.blob = base64ToBlob(r.blob);
+        rec.thumb = await makeThumb(rec.blob);
+        rec.fileName = r.fileName || null;
+      }
+      state[r.id] = rec;
+      await dbPut(rec);
+      count++;
+    }
+    hideLoading();
+    render();
+    toast(`${count} registro(s) importado(s)`, 'success');
+  } catch (err) {
+    hideLoading();
+    console.error(err);
+    toast('Erro ao importar: ' + err.message, 'error');
+  }
+}
+
+function exportCSV() {
+  const rows = [['Area', 'Secao', 'Codigo', 'Item', 'Slide', 'Status', 'Observacao']];
+  for (const it of allItems()) {
+    const rec = state[it.id];
+    const st = statusOf(it.id);
+    const stLabel = st === 'done' ? 'Feita' : st === 'na' ? 'N/A' : 'Pendente';
+    rows.push([
+      it.areaLabel,
+      it.section,
+      it.code,
+      it.title,
+      String(it.slide),
+      stLabel,
+      (rec && rec.note) ? rec.note.replace(/"/g, '""') : ''
+    ]);
+  }
+  const csv = '\uFEFF' + rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(';')).join('\n');
+  triggerDownload(new Blob([csv], { type: 'text/csv;charset=utf-8' }), `Audit_Checklist_${new Date().toISOString().slice(0,10)}.csv`);
+  toast('Checklist CSV exportado', 'success');
+}
+
+// =====================================================================
+// Event wiring
+// =====================================================================
+function wireUI() {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      activeArea = t.dataset.area;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      activeFilter = c.dataset.filter;
+      render();
+    });
+  });
+
+  document.getElementById('download-btn').addEventListener('click', downloadAllZip);
+
+  const menuModal = document.getElementById('menu-modal');
+  document.getElementById('menu-btn').addEventListener('click', () => menuModal.classList.remove('hidden'));
+  document.getElementById('close-menu-btn').addEventListener('click', () => menuModal.classList.add('hidden'));
+  menuModal.addEventListener('click', e => { if (e.target === menuModal) menuModal.classList.add('hidden'); });
+
+  document.getElementById('export-json-btn').addEventListener('click', () => {
+    menuModal.classList.add('hidden');
+    exportJSON();
+  });
+  document.getElementById('export-checklist-btn').addEventListener('click', () => {
+    menuModal.classList.add('hidden');
+    exportCSV();
+  });
+  const importInput = document.getElementById('import-json-input');
+  document.getElementById('import-json-btn').addEventListener('click', () => importInput.click());
+  importInput.addEventListener('change', e => {
+    const f = e.target.files && e.target.files[0];
+    if (f) {
+      menuModal.classList.add('hidden');
+      importJSON(f);
+      e.target.value = '';
+    }
+  });
+  document.getElementById('clear-btn').addEventListener('click', async () => {
+    if (!confirm('Tem certeza? Isso apaga TODAS as fotos e notas salvas no aparelho. Esta ação não pode ser desfeita.')) return;
+    showLoading('Limpando dados...');
+    await dbClear();
+    for (const k of Object.keys(state)) delete state[k];
+    hideLoading();
+    menuModal.classList.add('hidden');
+    render();
+    toast('Dados apagados', 'success');
+  });
+}
+
+// =====================================================================
+// Boot
+// =====================================================================
+(async function init() {
+  try {
+    await loadState();
+  } catch (err) {
+    console.error('Falha ao carregar estado:', err);
+  }
+  wireUI();
+  render();
+})();
+</script>
+</body>
+</html>
